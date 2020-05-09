@@ -333,8 +333,9 @@ background: linear-gradient(180deg, rgba(255,255,255,0.048039284073004174) 62%, 
 
 .education-box-image {
 	margin-top: 8px;
+	padding-bottom: 20px;
 	overflow: hidden;
-	border-radius: 4px;
+	border-radius: 6px;
 }
 
 .education-box-image img {
@@ -353,7 +354,6 @@ background: linear-gradient(180deg, rgba(255,255,255,0.048039284073004174) 62%, 
 
 .education-box h3 i {
 	padding-left: 10px;
-	color: co;
 	-o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 .education-box h3:hover i { padding-left: 15px; }
@@ -383,10 +383,13 @@ background: linear-gradient(180deg, rgba(255,255,255,0.048039284073004174) 62%, 
 }
 
 /***** Contact Me Form *****/
-#contact-form {
+#contact-form-container {
 	background-color: #153345;
 }
 
+#contact_form {
+
+}
 .contact-form {
 	padding: 30px;
 	margin: 30px auto;

@@ -25,6 +25,17 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+	<!-- Javascript -->
+	<script src="assets/js/jquery-3.2.1.min.js"></script>
+	<script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="assets/js/jquery.backstretch.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/retina-1.1.0.min.js"></script>
+	<script src="assets/js/waypoints.min.js"></script>
+	<script src="assets/js/scripts.js"></script>
+
 </head>
 
 <body>
@@ -384,42 +395,55 @@
 </div>
 
 <!---- Contact Me Form ---->
-<div class="container-fluid contact-form-container" id="contact-form">
+<div class="container-fluid contact-form-container" id="contact-form-container">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 m-auto">
-				<div class="contact-form">
-					<h1>Contact Me</h1>
-					<hr>
-					<form action="confirmation.php" method="post">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputName">Name</label>
-									<input type="text" class="form-control" id="inputName" required>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label for="inputEmail">Email</label>
-									<input type="email" class="form-control" id="inputEmail" required>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputSubject">Subject</label>
-							<input type="text" class="form-control" id="inputSubject" required>
-						</div>
-						<div class="form-group">
-							<label for="inputMessage">Message</label>
-							<textarea class="form-control" id="inputMessage" rows="5" required></textarea>
-						</div>
-						<div class="text-center">
-							<button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Send</button>
-						</div>
-					</form>
-				</div>
+				<h1>Contact Me</h1>
+				<hr>
 			</div>
+		</div>
+		<div class="contact-form">
+			<form class="form-horizontal" role="form" method="post" action="form.php">
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+						<?php echo "<p class='text-danger'>$errName</p>";?>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+						<?php echo "<p class='text-danger'>$errEmail</p>";?>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="message" class="col-sm-2 control-label">Message</label>
+					<div class="col-sm-10">
+						<textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
+						<?php echo "<p class='text-danger'>$errMessage</p>";?>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
+						<?php echo "<p class='text-danger'>$errHuman</p>";?>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10 col-sm-offset-2">
+						<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10 col-sm-offset-2">
+						<?php echo $result; ?>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -430,11 +454,13 @@
 		<div class="row">
 			<div class="col-md-5 footer-left">
 				<p>Created and maintained by Jared Waltisperger</p>
+				<p>Email: me@JaredWaltisperger.com</p>
 			</div>
 
 			<div class="col-md-6 offset-md-1 footer-right">
-				<a href="#"><i class="fab fa-facebook-f"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
+				<a href="https://linkedin.com/in/jared-waltisperger-b01bb6110" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+				<a href="https://github.com/PergerTech" target="_blank"><i class="fab fa-github" ></i></a>
+				<a href="mailto: me@JaredWaltisperger.com" target="_blank"><i class="far fa-envelope"></i></a>
 			</div>
 		</div>
 		<div class="row">
@@ -445,17 +471,10 @@
 	</div>
 </footer>
 
+<script src="assets/js/form.js"></script>
 
-<!-- Javascript -->
-<script src="assets/js/jquery-3.2.1.min.js"></script>
-<script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="assets/js/jquery.backstretch.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/retina-1.1.0.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/scripts.js"></script>
+
+
 
 </body>
 
