@@ -383,7 +383,7 @@ background: linear-gradient(180deg, rgba(255,255,255,0.048039284073004174) 62%, 
 }
 
 /***** Contact Me Form *****/
-#contact-form-container {
+.contact-form-container {
 	background-color: #153345;
 }
 
